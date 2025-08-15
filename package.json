@@ -23,6 +23,7 @@
     "@faker-js/faker": "^9.9.0",
     "@strapi/plugin-cloud": "5.13.0",
     "@strapi/plugin-users-permissions": "5.13.0",
+    "@strapi/sdk-plugin": "^5.3.2",
     "@strapi/strapi": "5.13.0",
     "axios": "^1.6.0",
     "inversify": "^7.7.0",
