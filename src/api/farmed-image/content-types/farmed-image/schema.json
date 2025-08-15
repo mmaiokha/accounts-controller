@@ -1,0 +1,29 @@
+{
+  "kind": "collectionType",
+  "collectionName": "farmed_images",
+  "info": {
+    "singularName": "farmed-image",
+    "pluralName": "farmed-images",
+    "displayName": "Farmed Images",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "folderPath": {
+      "type": "string",
+      "required": true
+    },
+    "isUsed": {
+      "type": "boolean"
+    },
+    "gender": {
+      "type": "enumeration",
+      "enum": [
+        "male",
+        "female"
+      ]
+    }
+  }
+}

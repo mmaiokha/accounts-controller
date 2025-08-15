@@ -1,0 +1,24 @@
+{
+  "kind": "singleType",
+  "collectionName": "api_keys",
+  "info": {
+    "singularName": "api-key",
+    "pluralName": "api-keys",
+    "displayName": "Api Keys"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "attributes": {
+    "visionKey": {
+      "type": "string",
+      "required": false
+    },
+    "smsActivateKey": {
+      "type": "string"
+    },
+    "rapidIgLooterApiKey": {
+      "type": "string"
+    }
+  }
+}

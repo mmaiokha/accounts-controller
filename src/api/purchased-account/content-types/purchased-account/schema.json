@@ -1,0 +1,69 @@
+{
+  "kind": "collectionType",
+  "collectionName": "purchased_accounts",
+  "info": {
+    "singularName": "purchased-account",
+    "pluralName": "purchased-accounts",
+    "displayName": "Purchased Accounts",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "attributes": {
+    "login": {
+      "type": "string",
+      "required": true
+    },
+    "plainPassword": {
+      "type": "string",
+      "required": true
+    },
+    "email": {
+      "type": "string"
+    },
+    "emailPlainPassword": {
+      "type": "string"
+    },
+    "phoneNumber": {
+      "type": "string"
+    },
+    "gender": {
+      "type": "enumeration",
+      "enum": [
+        "male",
+        "female"
+      ],
+      "required": false
+    },
+    "uploadedAt": {
+      "type": "datetime"
+    },
+    "useragent": {
+      "type": "string"
+    },
+    "cookie": {
+      "type": "json"
+    },
+    "geolocation": {
+      "type": "enumeration",
+      "enum": [
+        "UA"
+      ]
+    },
+    "facebookId": {
+      "type": "string"
+    },
+    "accountStatus": {
+      "type": "enumeration",
+      "enum": [
+        "new",
+        "banned",
+        "confirmation_requested",
+        "active"
+      ],
+      "default": "new",
+      "required": true
+    }
+  }
+}

@@ -1,0 +1,97 @@
+{
+  "kind": "collectionType",
+  "collectionName": "fb_accounts",
+  "info": {
+    "singularName": "fb-account",
+    "pluralName": "fb-accounts",
+    "displayName": "Facebook Accounts",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "attributes": {
+    "login": {
+      "type": "string",
+      "required": true
+    },
+    "plainPassword": {
+      "type": "string",
+      "required": true
+    },
+    "phoneNumber": {
+      "type": "string"
+    },
+    "email": {
+      "type": "email"
+    },
+    "emailPlainPassword": {
+      "type": "string"
+    },
+    "accountStatus": {
+      "type": "enumeration",
+      "enum": [
+        "active",
+        "finished",
+        "confirmation_requested",
+        "banned",
+        "waiting_for_confirmation",
+        "purchased",
+        "purchased_invalid"
+      ],
+      "default": "active",
+      "required": true
+    },
+    "firstName": {
+      "type": "string",
+      "required": false
+    },
+    "lastName": {
+      "type": "string",
+      "required": false
+    },
+    "birthdayDate": {
+      "type": "date",
+      "required": false
+    },
+    "gender": {
+      "type": "enumeration",
+      "enum": [
+        "male",
+        "female",
+        "unknown"
+      ],
+      "required": true,
+      "default": "unknown"
+    },
+    "geo": {
+      "type": "enumeration",
+      "enum": [
+        "UA",
+        "UNKNOWN"
+      ],
+      "required": true,
+      "default": "UNKNOWN"
+    },
+    "lastActivityAt": {
+      "type": "datetime",
+      "required": false
+    },
+    "visionFingerprint": {
+      "type": "json",
+      "required": false
+    },
+    "cookie": {
+      "type": "json"
+    },
+    "visionProfileId": {
+      "type": "string"
+    },
+    "useragent": {
+      "type": "string"
+    },
+    "twoFaToken": {
+      "type": "string"
+    }
+  }
+}
