@@ -1,0 +1,25 @@
+{
+  "kind": "collectionType",
+  "collectionName": "facebook_tags",
+  "info": {
+    "singularName": "facebook-tag",
+    "pluralName": "facebook-tags",
+    "displayName": "Facebook Tags"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "attributes": {
+    "tag": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "facebookAccounts": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::fb-account.fb-account",
+      "inversedBy": "tags"
+    }
+  }
+}

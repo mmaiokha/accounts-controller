@@ -92,6 +92,12 @@
     },
     "twoFaToken": {
       "type": "string"
+    },
+    "tags": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::facebook-tag.facebook-tag",
+      "mappedBy": "facebookAccounts"
     }
   }
 }

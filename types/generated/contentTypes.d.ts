@@ -403,6 +403,40 @@ export interface ApiApiKeyApiKey extends Struct.SingleTypeSchema {
   };
 }
 
+export interface ApiFacebookTagFacebookTag extends Struct.CollectionTypeSchema {
+  collectionName: 'facebook_tags';
+  info: {
+    displayName: 'Facebook Tags';
+    pluralName: 'facebook-tags';
+    singularName: 'facebook-tag';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    facebookAccounts: Schema.Attribute.Relation<
+      'manyToMany',
+      'api::fb-account.fb-account'
+    >;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::facebook-tag.facebook-tag'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    tag: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.Unique;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiFarmedImageFarmedImage extends Struct.CollectionTypeSchema {
   collectionName: 'farmed_images';
   info: {
@@ -485,6 +519,10 @@ export interface ApiFbAccountFbAccount extends Struct.CollectionTypeSchema {
     phoneNumber: Schema.Attribute.String;
     plainPassword: Schema.Attribute.String & Schema.Attribute.Required;
     publishedAt: Schema.Attribute.DateTime;
+    tags: Schema.Attribute.Relation<
+      'manyToMany',
+      'api::facebook-tag.facebook-tag'
+    >;
     twoFaToken: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -1005,6 +1043,7 @@ declare module '@strapi/strapi' {
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
       'api::api-key.api-key': ApiApiKeyApiKey;
+      'api::facebook-tag.facebook-tag': ApiFacebookTagFacebookTag;
       'api::farmed-image.farmed-image': ApiFarmedImageFarmedImage;
       'api::fb-account.fb-account': ApiFbAccountFbAccount;
       'plugin::content-releases.release': PluginContentReleasesRelease;
