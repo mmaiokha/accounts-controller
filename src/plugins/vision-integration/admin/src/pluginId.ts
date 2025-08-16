@@ -1,1 +1,1 @@
-export const PLUGIN_ID = 'create-vision-profile';
+export const PLUGIN_ID = 'vision-integration';

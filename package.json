@@ -16,7 +16,7 @@
     "postinstall": "npm run build:plugins",
     "build:plugins": "npm run build:plugin-import && npm run build:plugin-vision",
     "build:plugin-import": "cd src/plugins/import-puchased-accounts && npm install && npm run build",
-    "build:plugin-vision": "cd src/plugins/create-vision-profile && npm install && npm run build"
+    "build:plugin-vision": "cd src/plugins/vision-integration && npm install && npm run build"
   },
   "dependencies": {
     "@faker-js/faker": "^9.9.0",
