@@ -5,10 +5,7 @@ import type { StrapiApp } from '@strapi/admin/strapi-admin';
 
 export default {
   bootstrap(app: StrapiApp) {
-    // execute some bootstrap code
-    console.log('Plugin bootstrap:', PLUGIN_ID);
     const apis = app.getPlugin('content-manager').apis as any;
-    console.log('Content Manager APIs:', apis);
     apis.addEditViewSidePanel([Panel]);
   },
 
