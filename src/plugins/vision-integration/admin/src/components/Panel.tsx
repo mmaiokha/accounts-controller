@@ -4,6 +4,15 @@ import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { TOTP } from 'totp-generator';
 
+interface FbAccount {
+  id?: number;
+  documentId?: string;
+  visionProfileId?: string | null;
+  twoFaToken?: string;
+  lastActivityAt?: string;
+}
+
+
 export const Panel: PanelComponent = ({
   activeTab,
   collectionType,
@@ -16,7 +25,7 @@ export const Panel: PanelComponent = ({
     return null;
   }
 
-  const [account, setAccount] = useState(document);
+  const [account, setAccount] = useState<FbAccount>(document as FbAccount);
 
   // Define variables
   const [code, setCode] = useState<string>('');
@@ -62,7 +71,7 @@ export const Panel: PanelComponent = ({
   };
 
   const updateActivity = async () => {
-    const profile = axios
+    const profile = await axios
       .put(`/api/fb-accounts/${documentId}`, { data: { lastActivityAt: new Date() } })
       .then((res) => res.data.data);
 
@@ -84,8 +93,8 @@ export const Panel: PanelComponent = ({
 
       <Button
         onClick={syncAndDeleteProfile}
-        style={{ width: '100%', background: "#ee5e52", border: "1px solid #ee5e52" }}
-        background={"danger"}
+        style={{ width: '100%', background: '#ee5e52', border: '1px solid #ee5e52' }}
+        background={'danger'}
         disabled={!account?.visionProfileId}
       >
         Sync And Delete Profile
