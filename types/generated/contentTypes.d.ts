@@ -495,51 +495,6 @@ export interface ApiFbAccountFbAccount extends Struct.CollectionTypeSchema {
   };
 }
 
-export interface ApiPurchasedAccountPurchasedAccount
-  extends Struct.CollectionTypeSchema {
-  collectionName: 'purchased_accounts';
-  info: {
-    description: '';
-    displayName: 'Purchased Accounts';
-    pluralName: 'purchased-accounts';
-    singularName: 'purchased-account';
-  };
-  options: {
-    draftAndPublish: false;
-  };
-  attributes: {
-    accountStatus: Schema.Attribute.Enumeration<
-      ['new', 'banned', 'confirmation_requested', 'active']
-    > &
-      Schema.Attribute.Required &
-      Schema.Attribute.DefaultTo<'new'>;
-    cookie: Schema.Attribute.JSON;
-    createdAt: Schema.Attribute.DateTime;
-    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    email: Schema.Attribute.String;
-    emailPlainPassword: Schema.Attribute.String;
-    facebookId: Schema.Attribute.String;
-    gender: Schema.Attribute.Enumeration<['male', 'female']>;
-    geolocation: Schema.Attribute.Enumeration<['UA']>;
-    locale: Schema.Attribute.String & Schema.Attribute.Private;
-    localizations: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::purchased-account.purchased-account'
-    > &
-      Schema.Attribute.Private;
-    login: Schema.Attribute.String & Schema.Attribute.Required;
-    phoneNumber: Schema.Attribute.String;
-    plainPassword: Schema.Attribute.String & Schema.Attribute.Required;
-    publishedAt: Schema.Attribute.DateTime;
-    updatedAt: Schema.Attribute.DateTime;
-    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    uploadedAt: Schema.Attribute.DateTime;
-    useragent: Schema.Attribute.String;
-  };
-}
-
 export interface PluginContentReleasesRelease
   extends Struct.CollectionTypeSchema {
   collectionName: 'strapi_releases';
@@ -1052,7 +1007,6 @@ declare module '@strapi/strapi' {
       'api::api-key.api-key': ApiApiKeyApiKey;
       'api::farmed-image.farmed-image': ApiFarmedImageFarmedImage;
       'api::fb-account.fb-account': ApiFbAccountFbAccount;
-      'api::purchased-account.purchased-account': ApiPurchasedAccountPurchasedAccount;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
       'plugin::i18n.locale': PluginI18NLocale;

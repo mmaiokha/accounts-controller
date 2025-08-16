@@ -9,7 +9,6 @@
     "deploy": "strapi deploy",
     "login": "strapi login",
     "dev": "strapi develop",
-    "develop": "strapi develop",
     "start": "strapi start",
     "strapi": "strapi",
     "upgrade": "npx @strapi/upgrade latest",

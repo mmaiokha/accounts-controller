@@ -1,6 +1,6 @@
 import { PLUGIN_ID } from './pluginId';
 import { Initializer } from './components/Initializer';
-import { Panel } from './components/Test';
+import { Panel } from './components/Panel';
 import type { StrapiApp } from '@strapi/admin/strapi-admin';
 
 export default {
